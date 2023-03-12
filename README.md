@@ -1,7 +1,7 @@
 # PLP-Final-Project
 This is an end session project to build an online fashion store.
 
-# Frontend Directory
+# Fullstack Repository
 *** This repository showcases frontend (User Interphase files.)
 
 ## Goal of the Project
