@@ -1,5 +1,5 @@
 # Frontend Directory
-*** This repository showcases frontend (User Interphase files.)
+***This repository showcases frontend (User Interphase files.)***
 
 ## Goal of the Project
 The goal of the project is to build a robust and simple e-commerce fashion store employing the skills learnt through the [Power Learn Project](https://www.powerlearnproject.org/)
