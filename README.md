@@ -2,7 +2,7 @@
 This is an end session project to build an online fashion store.
 
 # Fullstack Repository
-**This repository showcases frontend (User Interphase files.)**
+**This repository showcases frontend (User Interphase files/User Experience.)**
 
 ## Goal of the Project
 The goal of the project is to build a robust and simple e-commerce fashion store employing the skills learnt through the [Power Learn Project](https://www.powerlearnproject.org/)
