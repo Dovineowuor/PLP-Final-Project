@@ -1,2 +1,2 @@
 # Frontend Directory
-*** This repository showcases frontend (User Interphase [html] files.) ***
+**This repository showcases frontend (User Interphase [html](html) files.)**
