@@ -1,9 +1,10 @@
 """
-
-Developed By : Owuor J
-facebook : fb.com/sumit.luv
-Youtube :youtube.com/lazycoders
-
++-------------+-------------------------------+
+|Developed By:| Dovine K                      |
+|facebook:    | https:/fb.com/dovine.fest.03  |
+|Youtube :    | youtube.com/CodewithDove      |
+|Linkedin:    | linkedin.com/in/dovine-owuor  |
++-------------+-------------------------------+
 
 """
 from django.contrib import admin
