@@ -1,8 +1,7 @@
-*__pycache__
+*__pycache__/*
 __pycache__
-*.pyc
-*.pyc
 ecom/__pycache__/__init__.cpython-311.pyc
 ecom/__pycache__/admin.cpython-311.pyc
 *.pyc
-*.pyc
+ecom/__pycache__/*
+
