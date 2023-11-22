@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
+
 <head>
   <title>Admin Panel - Ecommerce</title>
   <meta charset="utf-8">
@@ -9,6 +10,12 @@
 
 
   <style type="text/css">
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     .bs-example {
       margin: 0px;
 
@@ -20,61 +27,61 @@
 
     }
 
-        /*---------------------------------------
-           Social section
-        -----------------------------------------*/
-        footer {
-          padding: 0px 0px 0px 0px;
-          background-color: rgb(68, 240, 240);
-          margin: 0px;
-        }
+    /*---------------------------------------
+              Social section
+            -----------------------------------------*/
+    footer {
+      padding: 0px 0px 0px 0px;
+      background-color: rgb(68, 240, 240);
+      margin: 0px;
+    }
 
 
-        #ftr {
+    #ftr {
 
-          padding: 20px;
-        }
+      padding: 20px;
+    }
 
-        .fa {
+    .fa {
 
-          font-size: 23px;
-          width: 60px;
-          text-align: center;
-          text-decoration: none;
-          margin: 5px 2px;
-          border-radius: 50%;
-        }
+      font-size: 23px;
+      width: 60px;
+      text-align: center;
+      text-decoration: none;
+      margin: 5px 2px;
+      border-radius: 50%;
+    }
 
-        .fa:hover {
-          opacity: 0.5;
-          text-decoration: none;
-        }
+    .fa:hover {
+      opacity: 0.5;
+      text-decoration: none;
+    }
 
-        .fa-facebook {
-          background: #3B5998;
-          color: white;
-          margin-top: 30px;
-        }
+    .fa-facebook {
+      background: #3B5998;
+      color: white;
+      margin-top: 30px;
+    }
 
-        .fa-whatsapp {
-          background: #25d366;
-          color: white;
-        }
+    .fa-whatsapp {
+      background: #25d366;
+      color: white;
+    }
 
-        .fa-twitter {
-          background: #55ACEE;
-          color: white;
-        }
+    .fa-twitter {
+      background: #55ACEE;
+      color: white;
+    }
 
-        .fa-instagram {
-          background: #125688;
-          color: white;
-        }
+    .fa-instagram {
+      background: #125688;
+      color: white;
+    }
 
-        p {
-          text-align: center;
+    p {
+      text-align: center;
 
-        }
+    }
   </style>
 </head>
 
@@ -110,17 +117,18 @@
 
   {% endblock content %}
   <!-- content end-->
-<br><br><br><br><br><br><br><br>
-<section >
-  <footer class="text-center text-lg-start text-dark" style="background-color: #0BF9F9;">
-  
-    {% include 'templates/ecom/footer.html' %}
+  <br><br><br><br><br><br><br><br>
+  <section>
+    <footer class="text-center text-lg-start text-dark" style="background-color: #0BF9F9;">
 
-  </footer>
-  
+      {% include 'templates/ecom/footer.html' %}
+
+    </footer>
+
   </section>
   <!--
-  developed By : Joflix Ooko
-  -->
+      developed By : Joflix Ooko
+      -->
 </body>
+
 </html>

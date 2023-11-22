@@ -12,9 +12,12 @@
     .note {
       text-align: center;
       height: 80px;
-      background: #0F2027;  /* fallback for old browsers */
-      background: -webkit-linear-gradient(to left, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(to left, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      background: #0F2027;
+      /* fallback for old browsers */
+      background: -webkit-linear-gradient(to left, #2C5364, #203A43, #0F2027);
+      /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to left, #2C5364, #203A43, #0F2027);
+      /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
       color: #fff;
       font-weight: bold;
@@ -39,7 +42,7 @@
       cursor: pointer;
       background: #009414;
       color: #fff;
-      margin-left:100px;
+      margin-left: 100px;
     }
 
     .menu {
@@ -62,14 +65,14 @@
       </div>
       <div class="form-content">
 
-            <label for="">Select Any:</label>
+        <label for="">Select Any:</label>
 
-              {% render_field orderForm.status class="form-control" placeholder="Address" %}
-            </div>
+        {% render_field orderForm.status class="form-control" placeholder="Address" %}
+      </div>
 
-          </div>
-        </div>
-        <button type="submit" class="btnSubmit">Update Order Status</button>
+    </div>
+  </div>
+  <button type="submit" class="btnSubmit">Update Order Status</button>
 
 </form>
 <!--
