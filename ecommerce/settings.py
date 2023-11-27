@@ -11,11 +11,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from pathlib import Path
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
-STATIC_DIR=os.path.join(BASE_DIR,'static')
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -57,10 +55,20 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'ecommerce.urls'
 
+# Base directory of the project
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Paths for templates and static files
+TEMPLATE_DIR = BASE_DIR / "templates"
+STATIC_DIR = BASE_DIR / "static"
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_DIR,],
+        'DIRS': [str(TEMPLATE_DIR)],  # Convert Path object to a string
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,6 +82,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'ecommerce.wsgi.application'
+
 
 
 # Database
@@ -127,7 +136,7 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS=[STATIC_DIR,]
 
-MEDIA_ROOT=os.path.join(BASE_DIR,'static')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 
