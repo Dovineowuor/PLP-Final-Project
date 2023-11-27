@@ -1,6 +1,6 @@
 **Log on to codeastro.com for more projects!**
 
-**Developed By Owuor J**
+**Developed By Owuor J  & Dovine K**
 
 **Instructions**
 - Install the Requirements: pip install -r requirements.txt
@@ -9,3 +9,4 @@
 - And finally, run the application: python manage.py runserver
 
 For Admin Account, please create one with superuser!
+ 
