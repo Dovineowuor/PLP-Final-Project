@@ -1,0 +1,92 @@
+{% extends 'ecom/admin_base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    {% load static %}
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <style media="screen">
+        a:link {
+            text-decoration: none;
+        }
+
+        h6 {
+            text-align: center;
+        }
+
+        .row {
+            margin: 100px;
+        }
+
+        .float {
+            position: fixed;
+            width: 70px;
+            height: 70px;
+            bottom: 60px;
+            right: 60px;
+            background-color: #3eb54d;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            box-shadow: 5px 5px 5px #505050;
+        }
+
+        .my-float {
+            margin-top: 22px;
+        }
+    </style>
+</head>
+
+<div class="container">
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <h6 class="panel-title">Total Products</h6>
+        </div>
+        <table class="table table-hover table-bordered" id="dev-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Created At</th>
+                    <th>Updated At</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            {% for category in categories %}
+                <tr>
+                    <td>{{ category.name }}</td>
+                    <td>{{ category.description }}</td>
+                    <td>{{ category.created_at }}</td>
+                    <td>{{ category.updated_at }}</td>
+                    <td>
+                        <a class="btn btn-primary btn-xs" href="{% url 'update-category' category.id %}"><span
+                                class="glyphicon glyphicon-edit"></span></a>
+                        <a class="btn btn-danger btn-xs" href="{% url 'delete-category' category.id %}"><span
+                                class="glyphicon glyphicon-trash"></span></a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">
+                        <br><br><br>
+                        <h1>No Categories!!</h1>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+<!-- add category floating button -->
+<a href="{% url 'admin-add-category' %}" class="float">
+    <i class="fa fa-plus my-float"></i>
+</a>
+
+{% endblock content %}

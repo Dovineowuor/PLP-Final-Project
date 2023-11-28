@@ -34,8 +34,8 @@
 
 
     .new_footer_top {
-      padding: 120px 0px 270px;
-      position: relative;
+      padding: 120px 0px;
+      position:sticky ;
       overflow-x: hidden;
     }
 
@@ -263,7 +263,9 @@
         left: 100%;
       }
     }
-
+    footer {
+      z-index: 1000; /* Ensure the footer is above other content */
+    }
     /*************footer End*****************/
   </style>
 </head>

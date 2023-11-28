@@ -1,5 +1,4 @@
 {% extends 'ecom/customer_base.html' %}
-<!-- {% load static %} -->
 {% block content %}
 
 
@@ -373,6 +372,7 @@
     transition: left .65s ease-out;
   }
 
+  {% load static %}
   .slide-1 {
     background-image: url("{% static 'images/ecom-banner1.jpg' %}");
   }
@@ -390,7 +390,6 @@
   }
 </style>
 {% include "ecom/customer_navbar.html" %}
-
 <div class="row">
   <div class="col-md-12">
     <div class="slider-container">
@@ -414,7 +413,8 @@
     </div>
   </div>
 </div>
-
+{% include 'ecom/products_categories.html' %}
+{% include 'ecom/categories.html' %}
 
 {%if products%}
 <h3 style="text-align:center; color:#68d5b6;">{{word}}</h3>
@@ -460,6 +460,9 @@
   </div>
   <!-- card1 end -->
   {% if forloop.counter|divisibleby:"3" %}
+
+  {% load static %}
+
 </div>
 <div class="row">
   <br><br><br><br><br>
@@ -473,7 +476,6 @@
 {%else%}
 <h3 style="text-align:center; color:#3E454C;">No Search Found</h3>
 {%endif%}
-
 <script>
   {%if messages %}
   {%for message in messages %}
