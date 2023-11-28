@@ -180,6 +180,9 @@ def delete_order_view(request,pk):
     order.delete()
     return redirect('admin-view-booking')
 
+
+
+
 # for changing status of order (pending,delivered...)
 @login_required(login_url='adminlogin')
 def update_order_view(request,pk):
@@ -198,6 +201,17 @@ def update_order_view(request,pk):
 def view_feedback_view(request):
     feedbacks=models.Feedback.objects.all().order_by('-id')
     return render(request,'ecom/view_feedback.html',{'feedbacks':feedbacks})
+
+# Category views
+# views.py
+
+from django.shortcuts import render
+from .models import Category
+
+def category_list(request):
+    categories = Category.objects.all()
+    return render(request, 'ecom/categories.html', {'categories': categories})
+
 
 
 

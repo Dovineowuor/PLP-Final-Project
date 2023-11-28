@@ -13,6 +13,8 @@ from ecom import views
 from django.contrib.auth.views import LoginView,LogoutView
 from django.conf import settings
 from django.conf.urls.static import static
+from ecom.views import category_list
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -58,6 +60,9 @@ urlpatterns = [
     path('remove-from-cart/<int:pk>', views.remove_from_cart_view,name='remove-from-cart'),
     path('customer-address', views.customer_address_view,name='customer-address'),
     path('payment-success', views.payment_success_view,name='payment-success'),
+    path('categories/', category_list, name='category_list'),
+    path('categories', category_list),
+
     # urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
