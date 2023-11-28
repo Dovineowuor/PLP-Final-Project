@@ -1,0 +1,174 @@
+<!-- templates/ecom/product_list.html -->
+
+{% extends 'ecom/base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="table-responsive px-3">
+                                    <table class="table table-striped align-middle table-nowrap">
+                                        <tbody>
+                                            {% for product in products %}
+                                            <tr>
+                                                <td>
+                                                    <div class="avatar-lg me-4">
+                                                        <img src="{{ product.image_url }}" class="img-fluid rounded"
+                                                            alt="{{ product.name }}">
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div>
+                                                        <h5 class="font-size-18"><a
+                                                                href="{% url 'product-detail' product.id %}"
+                                                                class="text-dark">{{ product.name }}</a></h5>
+                                                        <p class="text-muted mb-0 mt-2 pt-2">
+                                                            {% for _ in range(product.rating) %}
+                                                            <i class="bx bxs-star text-warning"></i>
+                                                            {% endfor %}
+                                                        </p>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <ul class="list-unstyled ps-0 mb-0">
+                                                        {% for feature in product.features %}
+                                                        <li>
+                                                            <p class="text-muted mb-1 text-truncate"><i
+                                                                    class="mdi mdi-circle-medium align-middle text-primary me-1"></i>
+                                                                {{ feature }}</p>
+                                                        </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </td>
+
+                                                <td style="width: 180px;">
+                                                    <p>Colors :</p>
+                                                    <ul class="list-inline mb-0 text-muted product-color">
+                                                        {% for color in product.colors %}
+                                                        <li class="list-inline-item">
+                                                            <i class="mdi mdi-circle font-size-16 text-{{ color }}"></i>
+                                                        </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </td>
+
+                                                <td style="width: 220px;">
+                                                    <h3 class="mb-0 font-size-20">
+                                                        <span class="text-muted me-2">
+                                                            {% if product.discounted_price %}
+                                                            <del class="font-size-16 fw-normal">${{
+                                                                product.original_price }}</del>
+                                                            {% endif %}
+                                                        </span>
+                                                        <b>${{ product.discounted_price or product.original_price }}</b>
+                                                    </h3>
+                                                </td>
+
+                                                <td>
+                                                    <button type="button"
+                                                        class="btn btn-primary waves-effect waves-light">
+                                                        <i class="bx bx-cart me-2 font-size-15 align-middle"></i> Add
+                                                    </button>
+                                                </td>
+
+                                                <td>
+                                                    <div class="dropdown float-end">
+                                                        <a class="text-muted dropdown-toggle font-size-20" href="#"
+                                                            role="button" data-bs-toggle="dropdown"
+                                                            aria-haspopup="true">
+                                                            <i class="bx bx-dots-horizontal-rounded"></i>
+                                                        </a>
+                                                        <div class="dropdown-menu dropdown-menu-end">
+                                                            <a class="dropdown-item" href="#">Edit</a>
+                                                            <a class="dropdown-item" href="#">Action</a>
+                                                            <a class="dropdown-item" href="#">Remove</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Add your custom styling here */
+    body {
+        margin-top: 20px;
+        background-color: #f1f3f7;
+    }
+
+    body {
+        margin-top: 20px;
+        background-color: #f1f3f7;
+    }
+
+    .card {
+        margin-bottom: 24px;
+        -webkit-box-shadow: 0 2px 3px #e4e8f0;
+        box-shadow: 0 2px 3px #e4e8f0;
+    }
+
+    .card {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid #eff0f2;
+        border-radius: 1rem;
+    }
+
+    .font-size-18 {
+        font-size: 18px !important;
+    }
+
+    a {
+        text-decoration: none !important;
+    }
+
+    .text-muted {
+        --bs-text-opacity: 1;
+        color: #7f838b !important;
+    }
+
+    .font-size-20 {
+        font-size: 20px !important;
+    }
+
+    .font-size-15 {
+        font-size: 15px !important;
+    }
+
+    .card {
+        margin-bottom: 24px;
+        -webkit-box-shadow: 0 2px 3px #e4e8f0;
+        box-shadow: 0 2px 3px #e4e8f0;
+    }
+
+    /* Add the rest of the provided styling here */
+</style>
+
+{% endblock %}
