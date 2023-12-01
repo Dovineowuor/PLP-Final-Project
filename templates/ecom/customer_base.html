@@ -46,10 +46,11 @@
     }
 
     .navbar-button {
-      background-color: #41e5e5;
+      background-color: #7FFFD4;
+;
       border: 1px solid #66cbf3;
       border-radius: 0 2px 2px 0;
-      color: #565656;
+      color: #a39f9f;
       padding: 10px 0;
       height: 43px;
       cursor: pointer
@@ -184,62 +185,6 @@
       cursor: pointer
     }
 
-    /*---------------------------------------
-           Social section
-        -----------------------------------------*/
-    footer {
-      padding: 0px 0px 0px 0px;
-      background-color: rgb(78, 241, 241);
-      margin: 0px;
-    }
-
-
-    #ftr {
-
-      padding: 20px;
-    }
-
-    .fa {
-
-      font-size: 23px;
-      width: 60px;
-      text-align: center;
-      text-decoration: none;
-      margin: 5px 2px;
-      border-radius: 50%;
-    }
-
-    .fa:hover {
-      opacity: 0.5;
-      text-decoration: none;
-    }
-
-    .fa-facebook {
-      background: #3B5998;
-      color: white;
-      margin-top: 30px;
-    }
-
-    .fa-whatsapp {
-      background: #25d366;
-      color: white;
-    }
-
-    .fa-twitter {
-      background: #55ACEE;
-      color: white;
-    }
-
-    .fa-instagram {
-      background: #125688;
-      color: white;
-    }
-
-    p {
-      text-align: center;
-
-    }
-
 
     @media screen and (min-width: 768px) {
       .largenav {
@@ -264,28 +209,7 @@
   {% endblock content %}
   <!-- content end-->
   <br><br><br>
-  <footer>
-    <br>
-
-    <p>
-      <a href="#" class="fa fa-facebook"></a>
-      <a href="#" class="fa fa-whatsapp"></a>
-      <a href="#" class="fa fa-instagram"></a>
-      <a href="#" class="fa fa-twitter"></a>
-    </p>
-
-    <br>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 col-sm-12">
-          <div style="color:#ffffff;" class="wow fadeInUp footer-copyright">
-            <p> ZooBee<br>
-              &copy; 2022 Developed By Owuor J </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+  {% include "ecom/footer.html" %}
   <script>
     $(document).ready(function () {
 
