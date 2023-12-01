@@ -1,0 +1,27 @@
+<!-- subscribe.html -->
+<!-- 
+{% block content %}
+  <div class="container mt-5">
+    <h2>Subscribe to Our Newsletter</h2>
+    <p>Stay updated with our latest news and offers by subscribing to our newsletter.</p>
+
+    <form method="post" action="{% url 'subscribe' %}" class="subscribe-form">
+      {% csrf_token %}
+      <div class="input-group mb-3">
+        {{ form.email }}
+        <div class="input-group-append">
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </div>
+      </div>
+    </form>
+  </div>
+{% endblock %} -->
+<!-- subscribe.html -->
+<h2 class="footer-heading mt-5">Subscribe Us</h2>
+<form method="post" action="{% url 'subscribe' %}" class="subscribe-form">
+    {% csrf_token %}
+    <div class="form-group d-flex">
+        {{ form.email }}
+        <input type="submit" value="Subscribe" class="form-control submit px-3 rounded-right" style="background-color: deepskyblue;">
+    </div>
+</form>
