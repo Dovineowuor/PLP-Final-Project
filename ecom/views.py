@@ -570,3 +570,29 @@ def contactus_view(request):
             send_mail(str(name)+' || '+str(email),message, settings.EMAIL_HOST_USER, settings.EMAIL_RECEIVING_USER, fail_silently = False)
             return render(request, 'ecom/contactussuccess.html')
     return render(request, 'ecom/contactus.html', {'form':sub})
+
+# Newsletter Subscription View
+
+from django.core.mail import send_mail
+from django.shortcuts import render, redirect
+from .forms import SubscriptionForm
+
+def subscribe(request):
+    if request.method == 'POST':
+        form = SubscriptionForm(request.POST)
+        if form.is_valid():
+            subscriber = form.save()
+
+            # Send a confirmation email
+            subject = 'Subscription Confirmation'
+            message = 'Thank you for subscribing to our newsletter!'
+            from_email = 'your-email@example.com'
+            to_email = [subscriber.email]
+
+            send_mail(subject, message, from_email, to_email, fail_silently=False)
+
+            return redirect('success')  # Redirect to a success page
+    else:
+        form = SubscriptionForm()
+
+    return render(request, 'subscribe.html', {'form': form})

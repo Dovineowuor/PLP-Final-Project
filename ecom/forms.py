@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
+from .models import Subscription
 from . import models
 
 
@@ -43,3 +44,15 @@ class ContactusForm(forms.Form):
     Name = forms.CharField(max_length=30)
     Email = forms.EmailField()
     Message = forms.CharField(max_length=500,widget=forms.Textarea(attrs={'rows': 3, 'cols': 30}))
+
+# Email Subscription
+# forms.py
+from django import forms
+class SubscriptionForm(forms.ModelForm):
+    class Meta:
+        model = Subscription
+        fields = ['email']
+
+    widgets = {
+        'email': forms.EmailInput(attrs={'class': 'form-control rounded-left', 'placeholder': 'Enter email address'}),
+    }
