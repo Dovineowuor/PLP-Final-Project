@@ -13,7 +13,7 @@ from ecom import views
 from django.contrib.auth.views import LoginView,LogoutView
 from django.conf import settings
 from django.conf.urls.static import static
-from ecom.views import category_list
+from ecom.views import category_list, subscribe
 
 
 urlpatterns = [
@@ -61,8 +61,9 @@ urlpatterns = [
     path('customer-address', views.customer_address_view,name='customer-address'),
     path('payment-success', views.payment_success_view,name='payment-success'),
     path('categories/', category_list, name='category_list'),
-    # urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
+    # Email Subscription
+    path('subscribe/', subscribe, name='subscribe'),
 
 ]
+    # urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
