@@ -243,7 +243,7 @@ label {
 }
 
 button {
-  border-radius: 0;
+  border-radius: 15px 0 15px 0 !important;
 }
 
 button:focus {
@@ -256,7 +256,7 @@ button,
 select,
 optgroup,
 textarea {
-  margin: 0;
+  margin: 2px;
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
@@ -11825,7 +11825,7 @@ textarea.form-control {
 }
 
 footer {
-  padding: 7em 0;
+  padding: 4em 0;
 }
 
 .footer-03 {
