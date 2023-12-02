@@ -1,4 +1,5 @@
 {% extends 'ecom/homebase.html' %}
+
 {% load static %}
 
 <head>
@@ -12,8 +13,22 @@
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
+    {% load static %}
+    {% load static %}
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <style media="screen">
         a:link {
+            text-decoration: none;
+        }
+
+        <style media="screen">a:link {
             text-decoration: none;
         }
 
@@ -21,10 +36,22 @@
             text-align: center;
         }
 
+        h2 {
+            text-align: center;
+        }
+
+        .centered-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            /* Adjust to your needs */
+        }
+
         .button1 {
             width: 200px;
             background-color: aquamarine !important;
-            border: 2px lightseagreen !important;
+            border: 2px solid lightseagreen !important;
             border-radius: 0 15px 0 15px;
             padding: 16px 32px;
             text-align: center !important;
@@ -35,7 +62,6 @@
             transition-duration: 0.4s;
             cursor: pointer !important;
             color: white;
-            /* Text color */
         }
 
         .button1:hover {
@@ -45,17 +71,15 @@
         }
     </style>
 </head>
+
 {% block title %}Logout{% endblock %}
 
 {% block content %}
-<br><br>
-<h1 style="align-self: center; text-align: center; color: aqua;font-style: inherit;">Logged Out Succesfully</h1></br>
-<p>Thanks for spending some quality time with the Web site today.</p>
-<p>
-    <a href="{% url 'customerlogin' %}">
-        <button class="button1">Login Again!</button>
-    </a>
-
-</p>
-<br><br>
+<div class="centered-container"style= 'padding:50px;'>
+    <div style="border: 1px solid aquamarine; border-radius: 10px; padding: 20px; text-align: center;">
+        <h1>Logged Out Successfully</h1><br>
+        <p>Thanks for spending some quality time with the website today.</p><br><br>
+        <a href="{% url 'customerlogin' %}" class="button1">Log in again!</a><br><br>
+    </div><br><br>
+</div>
 {% endblock %}
