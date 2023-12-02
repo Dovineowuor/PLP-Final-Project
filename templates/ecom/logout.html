@@ -1,15 +1,61 @@
 {% extends 'ecom/homebase.html' %}
 {% load static %}
+
+<head>
+    {% load static %}
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <style media="screen">
+        a:link {
+            text-decoration: none;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .button1 {
+            width: 200px;
+            background-color: aquamarine !important;
+            border: 2px lightseagreen !important;
+            border-radius: 0 15px 0 15px;
+            padding: 16px 32px;
+            text-align: center !important;
+            text-decoration: none;
+            display: inline-block !important;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer !important;
+            color: white;
+            /* Text color */
+        }
+
+        .button1:hover {
+            background-color: white !important;
+            color: #333 !important;
+            border: 2px solid #04AA6D !important;
+        }
+    </style>
+</head>
+{% block title %}Logout{% endblock %}
+
 {% block content %}
-<br><br><br>
-<!-- <img src="{% static "images/logout_img.png" %}"  style="width:800px; height:100px; padding-left:400px;"> -->
+<br><br>
+<h1 style="align-self: center; text-align: center; color: aqua;font-style: inherit;">Logged Out Succesfully</h1></br>
+<p>Thanks for spending some quality time with the Web site today.</p>
+<p>
+    <a href="{% url 'customerlogin' %}">
+        <button class="button1">Login Again!</button>
+    </a>
 
-<center>
-    <h2>You've logged out successfully!</h2>
-</center>
-
-<br><br><br><br><br>
-<br><br><br><br><br>
-<br><br><br>
-
-{% endblock content %}
+</p>
+<br><br>
+{% endblock %}
