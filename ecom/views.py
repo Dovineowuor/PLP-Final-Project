@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required,user_passes_test
 from django.contrib import messages
 from django.conf import settings
 
+
 def home_view(request):
     products=models.Product.objects.all()
     if 'product_ids' in request.COOKIES:
@@ -559,17 +560,52 @@ def edit_profile_view(request):
 def aboutus_view(request):
     return render(request,'ecom/aboutus.html')
 
+# def contactus_view(request):
+#     sub = forms.ContactusForm()
+#     if request.method == 'POST':
+#         sub = forms.ContactusForm(request.POST)
+#         if sub.is_valid():
+#             email = sub.cleaned_data['Email']
+#             name=sub.cleaned_data['Name']
+#             message = sub.cleaned_data['Message']
+#             send_mail(str(name)+' || '+str(email),message, settings.EMAIL_HOST_USER, settings.EMAIL_RECEIVING_USER, fail_silently = False)
+#             return render(request, 'ecom/contactussuccess.html')
+#     return render(request, 'ecom/contactus.html', {'form':sub})
+# views.py
+from django.core.mail import send_mail
+from django.conf import settings
+from django.shortcuts import render
+from . import forms
+
 def contactus_view(request):
-    sub = forms.ContactusForm()
+    contact_form = forms.ContactusForm()
+
     if request.method == 'POST':
-        sub = forms.ContactusForm(request.POST)
-        if sub.is_valid():
-            email = sub.cleaned_data['Email']
-            name=sub.cleaned_data['Name']
-            message = sub.cleaned_data['Message']
-            send_mail(str(name)+' || '+str(email),message, settings.EMAIL_HOST_USER, settings.EMAIL_RECEIVING_USER, fail_silently = False)
+        contact_form = forms.ContactusForm(request.POST)
+
+        if contact_form.is_valid():
+            name = contact_form.cleaned_data['Name']
+            email = contact_form.cleaned_data['Email']
+            message = contact_form.cleaned_data['Message']
+
+            # Assuming you have a field in your form for the user's email
+            user_email = contact_form.cleaned_data.get('user_email', '')
+
+            # Now, you can use the user's email as the recipient
+            recipient_email = user_email or settings.DEFAULT_FROM_EMAIL
+
+            send_mail(
+                f'{name} || {email}',
+                message,
+                settings.DEFAULT_FROM_EMAIL,  # Use a default from email address
+                [recipient_email],  # Set the recipient dynamically
+                fail_silently=False,
+            )
+
             return render(request, 'ecom/contactussuccess.html')
-    return render(request, 'ecom/contactus.html', {'form':sub})
+
+    return render(request, 'ecom/contactus.html', {'form': contact_form})
+
 
 # Newsletter Subscription View
 
