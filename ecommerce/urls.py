@@ -7,14 +7,13 @@
 +-------------+-------------------------------+
 
 """
+from django.conf import settings
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from ecom import views
 from django.contrib.auth.views import LoginView,LogoutView
-from django.conf import settings
 from django.conf.urls.static import static
 from ecom.views import category_list, subscribe
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,6 +22,7 @@ urlpatterns = [
     path('logout', LogoutView.as_view(template_name='ecom/logout.html'),name='logout'),
     path('aboutus', views.aboutus_view),
     path('contactus', views.contactus_view,name='contactus'),
+    # path("contactus", views.contactus, name="contactus"),
     path('search', views.search_view,name='search'),
     path('send-feedback', views.send_feedback_view,name='send-feedback'),
     path('view-feedback', views.view_feedback_view,name='view-feedback'),
@@ -63,7 +63,7 @@ urlpatterns = [
     path('categories/', category_list, name='category_list'),
     # Email Subscription
     path('subscribe/', subscribe, name='subscribe'),
-
-]
-    # urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    ]
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
