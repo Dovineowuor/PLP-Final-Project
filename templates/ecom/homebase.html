@@ -5,9 +5,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- jQuery library -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!-- Latest compiled JavaScript -->
-  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
   <title>ZooBee</title>
 
   <style>
@@ -202,6 +202,7 @@
 <body>
   {%if request.user.is_authenticated%}
   {% include "ecom/customer_navbar.html" %}
+
   {%else%}
   <div id="navbar">
     <div class="container">
@@ -214,15 +215,23 @@
             </ul>
           </li>
 
+          <li class="upper-links"><a class="links" href="/">Home</a></li>
           <li class="upper-links"><a class="links" href="/adminclick">Admin</a></li>
           <li class="upper-links"><a class="links" href="/aboutus">About Us</a></li>
+          <li class="upper-links"><a class="links" href="/my-order">My Orders</a></li>
+          <li class="upper-links"><a class="links" href="/contactus">Contact Us!</a></li>
+          
+
 
         </ul>
       </div>
       <div class="row row2">
         <div class="col-sm-3 btn btn-lg">
-          <h2 style="margin:0px;"><a style="text-decoration:none; color:white; outline-color: #f7f7f7;" href="/"><span
-                class="largenav">ZooBee </span></a></h2>
+          <h2 style="margin:0px;"><a style="text-decoration:none; color:white; outline-color: #f7f7f7;" href="/">
+            <span
+                class="largenav"><b>ZooBee </b>
+              </span></a>
+            </h2>
         </div>
 
 
