@@ -336,13 +336,13 @@
       max-width: 100%;
     }
 
-    .slider-container {
-      height: 35%;
+    /* .slider-container {
+      height: 300%;
       width: 100%;
       position: relative;
       overflow: hidden;
       text-align: center;
-    }
+    } */
 
     .menu {
       position: absolute;
@@ -384,51 +384,11 @@
       z-index: 100;
       transition: left .65s ease-out;
     }
-
-    {% load static %}
-    .slide-1 {
-      background-image: url("{% static 'images/ecom-banner1.jpg' %}");
-    }
-
-    .slide-2 {
-      background-image: url("{% static 'images/ecom-banner4.jpg' %}");
-    }
-
-    .slide-3 {
-      background-image: url("{% static 'images/ecom-banner1.png' %}");
-    }
-
-    .slide-4 {
-      background-image: url("{% static 'images/ecom-banner3.jpg' %}");
-    }
   </style>
 </head>
-
-
+<br>
 {% include "ecom/customer_navbar.html" %}
-<div class="row">
-  <div class="col-md-12">
-    <div class="slider-container">
-      <div class="menu">
-        <label for="slide-dot-1"></label>
-        <label for="slide-dot-2"></label>
-        <label for="slide-dot-3"></label>
-        <label for="slide-dot-4"></label>
-      </div>
-
-      <input id="slide-dot-1" type="radio" name="slides" checked>
-      <div class="slide slide-1"></div>
-
-      <input id="slide-dot-2" type="radio" name="slides">
-      <div class="slide slide-2"></div>
-
-      <input id="slide-dot-3" type="radio" name="slides">
-      <div class="slide slide-3"></div>
-      <input id="slide-dot-4" type="radio" name="slides">
-      <div class="slide slide-4"></div>
-    </div>
-  </div>
-</div>
+{% include "ecom/banner_slider.html" %}
 
 
 {%if products%}
