@@ -407,17 +407,48 @@
   .slide-4 {
     background-image: url("{% static 'images/ecom-banner3.jpg' %}");
   }
+
+  .note {
+      text-align: center;
+      height: 80px;
+      background: -webkit-linear-gradient(left, aqua, #8811c5);
+      color: #fff;
+      font-weight: bold;
+      line-height: 80px;
+      width: 100%;
+      
+    }
 </style>
 </head>
 
 
 <!-- {% include 'ecom/banner_slider.html' %} -->
 {%if products%}
-<h3 style="text-align:center; color:#3E454C;">{{word}}</h3>
+
+<div class="note" style="text-align: center;
+height: 80px;
+background: -webkit-linear-gradient(left, aqua, #8811c5, aqua);
+color: #fff;
+font-weight: bold;
+line-height: 80px;
+width: 100%;">
+  <p>
+    <h3 style="text-align:center; color:#fafafa;">{{word}}</h3>
+  </p>
+</div>
 <br>
 {% include 'ecom/hero.html' %}<br><br>
-<h3 style="text-align:center; color:#3E454C; font-weight: bolder; text-decoration: underline aqua double;">Products</h3>
-
+<div class="note" style="text-align: center;
+height: 80px;
+background: -webkit-linear-gradient(left,aqua, #8811c5, aqua, );
+color: #fff;
+font-weight: bold;
+line-height: 80px;
+width: 100%;">
+  <p>
+    <h3 style="text-align:center; font-weight: bolder;">Products</h3>
+  </p>
+</div>
 <!-- products data starttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt -->
 <div class="row">
 
@@ -469,7 +500,18 @@
 
 <!-- products data enddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd -->
 {%else%}
-<h3 style="text-align:center; color:#3E454C;">No Search Found</h3>
+<div class="note" style="text-align: center;
+height: 80px;
+background: -webkit-linear-gradient(left,aqua, #8811c5, aqua, );
+color: #fff;
+font-weight: bold;
+line-height: 80px;
+width: 100%;">
+  <p>
+    <h3 style="text-align:center; color: #fafafa;">No Search Found</h3>
+  </p>
+</div>
+
 {%endif%}
 
 <!-- {% include 'ecom/products_listings.html' %} -->
