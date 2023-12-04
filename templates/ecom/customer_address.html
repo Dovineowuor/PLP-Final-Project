@@ -2,8 +2,8 @@
 {% load static %}
 {% load widget_tweaks %}
 {% block content %}
-
-<style type="text/css">
+<head>
+	<style type="text/css">
 	.form-style-1 {
 		margin: 10px auto;
 		max-width: 400px;
@@ -100,6 +100,8 @@
 		color: red;
 	}
 </style>
+</head>
+{% include 'ecom/customer_navbar.html' %}
 {%if product_in_cart%}
 <form method="post">
 	{% csrf_token %}
