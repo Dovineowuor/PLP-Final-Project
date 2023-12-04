@@ -231,7 +231,7 @@ def search_view(request):
         product_count_in_cart=0
 
     # word variable will be shown in html when user click on search button
-    word="Searched Result :"
+    word="Searched Result :" + " " + query
 
     if request.user.is_authenticated:
         return render(request,'ecom/customer_home.html',{'products':products,'word':word,'product_count_in_cart':product_count_in_cart})
