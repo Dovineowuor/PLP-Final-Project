@@ -6,6 +6,8 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required,user_passes_test
 from django.contrib import messages
 from django.conf import settings
+from django.shortcuts import render
+from .models import Product
 
 
 def home_view(request):
@@ -18,7 +20,7 @@ def home_view(request):
         product_count_in_cart=0
     if request.user.is_authenticated:
         return HttpResponseRedirect('afterlogin')
-    return render(request,'ecom/index.html',{'products':products,'product_count_in_cart':product_count_in_cart})
+    return render(request,'ecom/index.html',{'s':products,'product_count_in_cart':product_count_in_cart})
     
 
 
@@ -438,7 +440,7 @@ def payment_success_view(request):
     # suppose if we have 5 items in cart and we place order....so 5 rows will be created in orders table
     # there will be lot of redundant data in orders table...but its become more complicated if we normalize it
     for product in products:
-        models.Orders.objects.get_or_create(customer=customer,product=product,status='Pending',email=email,mobile=mobile,address=address)
+        models.Orders.objects.get_or_create(customer=customer,product=product,status='Order Placed',email=email,mobile=mobile,address=address)
 
     # after order placed cookies should be deleted
     response = render(request,'ecom/payment_success.html')
@@ -571,7 +573,7 @@ def aboutus_view(request):
 #             send_mail(str(name)+' || '+str(email),message, settings.EMAIL_HOST_USER, settings.EMAIL_RECEIVING_USER, fail_silently = False)
 #             return render(request, 'ecom/contactussuccess.html')
 #     return render(request, 'ecom/contactus.html', {'form':sub})
-# views.py
+
 from django.core.mail import send_mail
 from django.conf import settings
 from django.shortcuts import render
@@ -632,3 +634,18 @@ def subscribe(request):
         form = SubscriptionForm()
 
     return render(request, 'subscribe.html', {'form': form})
+
+# "In Stock" or "Out of Stock."
+
+def in_stock_view(request):
+    # Retrieve products with quantity greater than or equal to 1
+    in_stock_products = Product.objects.filter(quantity__gte=1)
+    context = {'products': in_stock_products, 'status': 'In Stock'}
+    return render(request, 'stock_status.html', context)
+
+def out_of_stock_view(request):
+    # Retrieve products with quantity less than 1
+    out_of_stock_products = Product.objects.filter(quantity__lt=1)
+    context = {'products': out_of_stock_products, 'status': 'Out of Stock'}
+    return render(request, 'stock_status.html', context)
+

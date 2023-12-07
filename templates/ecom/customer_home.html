@@ -400,9 +400,9 @@
 
   {% include "ecom/products_listings.html" %}
 
-  <!-- {% for p in products %} -->
+  {% for p in products %}
   <!-- card1 -->
-  <!-- <div class="column">
+  <div class="column">
     <div class="container page-wrapper" style="width: 320px;">
       <div class="page-inner">
         <div class="row">
@@ -434,9 +434,9 @@
         </div>
       </div>
     </div>
-  </div> -->
+  </div> 
   <!-- card1 end -->
-  <!-- {% if forloop.counter|divisibleby:"3" %} -->
+  {% if forloop.counter|divisibleby:"3" %}
 
   {% load static %}
   
@@ -453,7 +453,7 @@
 
 
 {%else%}
-<h3 style="text-align:center; color:#3E454C;">No Search Found</h3>
+<h3 style="text-align:center; color:#3E454C;">No Product Found</h3>
 {%endif%}
 <script>
   {%if messages %}

@@ -3,18 +3,15 @@
 {% block content %}
 {% load static %}
 
-
-
 <head>
   {% load static %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
-    
+
     <meta name="description" content="Explore the epitome of style with Zoobee – Nairobi's premier online fashion destination. Discover curated fashion collections, enjoy nationwide delivery, and redefine your wardrobe.">
     <meta name="keywords" content="Zoobee, online fashion, fashion collection, Nairobi, nationwide delivery, clothing, accessories, style, wardrobe, premium fashion, trends, designer wear">
     <meta name="author" content="Your Company Name">
 
-    
     <meta property="og:title" content="Zoobee - Nairobi's Premier Online Fashion Destination">
     <meta property="og:description" content="Explore the epitome of style with Zoobee – Nairobi's premier online fashion destination. Discover curated fashion collections, enjoy nationwide delivery, and redefine your wardrobe.">
     <meta property="og:image" content="{% static 'favicon/apple-touch-icon.png' %}">
@@ -25,7 +22,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
     <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
-    <title>About Us | Zoobee Collections</title>
+    <title>Add Products | Zoobee Collections</title>
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -38,12 +35,7 @@
     .note {
       text-align: center;
       height: 80px;
-      background: #e3e9eb;
-      /* fallback for old browsers */
-      background: -webkit-linear-gradient(to left, #6ab5aa, #4fcb6e, #5abc98);
-      /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(to left, #6ab5aa, #4fcb6e, #5abc98);
-      /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      background: -webkit-linear-gradient(left, orange, #8811c5, aqua);
       color: #fff;
       font-weight: bold;
       line-height: 80px;
@@ -87,7 +79,7 @@
     <div class="form">
       <div class="note" style="text-align: center;
       height: 80px;
-      background: -webkit-linear-gradient(left,orange, #8811c5, aqua, );
+      background: -webkit-linear-gradient(left, orange, #8811c5, aqua);
       color: #fff;
       font-weight: bold;
       line-height: 80px;
@@ -117,7 +109,27 @@
               {% render_field productForm.product_image class="form-control" placeholder="product_image" %}
             </div>
 
-
+            <!-- Add new fields here -->
+            <div class="form-group">
+              <label for="">Brand</label>
+              {% render_field productForm.brand class="form-control" placeholder="Brand" %}
+            </div>
+            <div class="form-group">
+              <label for="">Category</label>
+              {% render_field productForm.category class="form-control" placeholder="Category" %}
+            </div>
+            <div class="form-group">
+              <label for="">Product Code</label>
+              {% render_field productForm.code class="form-control" placeholder="Product Code" %}
+            </div>
+            <div class="form-group">
+              <label for="">Quantity</label>
+              {% render_field productForm.quantity class="form-control" placeholder="Quantity" %}
+            </div>
+            <div class="form-group">
+              <label for="">Status</label>
+              {% render_field productForm.status class="form-control" %}
+            </div>
           </div>
         </div>
         <button type="submit" class="btnSubmit">ADD</button>
