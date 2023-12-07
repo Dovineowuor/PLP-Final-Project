@@ -233,13 +233,12 @@ class Brand(models.Model):
         ('Zara', 'Zara'),
         ('rue', 'rue'),
     ]
-
-
     name = models.CharField(max_length=255)
-    status = models.CharField(max_length=32, choices=BRAND, default='Choose a brand Matching the product Below') 
+    status = models.CharField(max_length=32, choices=BRAND, default='Choose a brand Matching the product Below')
 
     def __str__(self):
         return self.name
+
 
 
 class Product(models.Model):
