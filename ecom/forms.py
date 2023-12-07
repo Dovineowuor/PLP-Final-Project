@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from .models import Subscription
+from .models import Subscription, Product
 from . import models
 
 
@@ -19,8 +19,11 @@ class CustomerForm(forms.ModelForm):
 
 class ProductForm(forms.ModelForm):
     class Meta:
-        model=models.Product
-        fields=['name','price','description','product_image']
+        model = Product
+        fields = ['brand', 'category', 'name', 'code', 'product_image', 'price', 'description', 'quantity', 'status']
+
+    def __init__(self, *args, **kwargs):
+        super(ProductForm, self).__init__(*args, **kwargs)
 
 #address of shipment
 class AddressForm(forms.Form):
