@@ -1,6 +1,6 @@
 <!-- templates/ecom/categories.html -->
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     {% load static %}
@@ -11,8 +11,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
     <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
-    <style>
-        /* Add your custom styling here */
+    <style> -->
+        <!-- /* Add your custom styling here */
         .category-card {
             max-width: 300px;
             margin: 10px;
@@ -36,55 +36,14 @@
             font-size: 14px;
         }
     </style>
-    <title>Category List</title>
 </head>
-<!-- templates/ecom/categories.html -->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% load static %}
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
-    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
-    <style>
-        /* Add your custom styling here */
-        .category-card {
-            max-width: 300px;
-            margin: 10px;
-            padding: 15px;
-            border: 2px solid #2E8B57; /* Blue-green border color */
-            border-radius: 5px; /* 5px rounded corners */
-            background: linear-gradient(to right, #2E8B57, #5F9EA0); /* Linear gradient background */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
-            transition: transform 0.3s;
-        }
-        .category-card:hover {
-            transform: scale(1.05); /* Scale up on hover */
-            background-color: #ADD8E6; /* Light blue background on hover */
-        }
-        .category-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .category-description {
-            font-size: 14px;
-        }
-    </style>
-    <title>Category List</title>
-</head>
-<body>
-    {% if request.user.is_authenticated %}
+<body> -->
+    <!-- {% if request.user.is_authenticated %}
         {% include "ecom/customer_navbar.html" %}
     {% else %}
         {% include "ecom/navbar.html" %}
-    {% endif %}
-    <div style="display: flex; flex-wrap: wrap;">
+    {% endif %} -->
+    <!-- <div style="display: flex; flex-wrap: wrap;">
         {% for category in categories %}
             <div class="category-card">
                 <img src="{{ category.image.url }}" alt="{{ category.name }}" style="max-width: 100%;">
@@ -92,9 +51,8 @@
                 <div class="category-description">{{ category.description }}</div>
             </div>
         {% endfor %}
-        {% include "ecom/footer.html" %}
     </div>
 </body>
 </html>
 
-</html>
+</html> -->

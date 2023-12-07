@@ -395,11 +395,14 @@
 <br>
 
 <!-- products data start -->
-<div class="row">
+<!-- <div class="row"> -->
+  {% load static %}
 
-  {% for p in products %}
+  {% include "ecom/products_listings.html" %}
+
+  <!-- {% for p in products %} -->
   <!-- card1 -->
-  <div class="column">
+  <!-- <div class="column">
     <div class="container page-wrapper" style="width: 320px;">
       <div class="page-inner">
         <div class="row">
@@ -431,9 +434,9 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- card1 end -->
-  {% if forloop.counter|divisibleby:"3" %}
+  <!-- {% if forloop.counter|divisibleby:"3" %} -->
 
   {% load static %}
   
