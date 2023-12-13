@@ -234,7 +234,7 @@ class Brand(models.Model):
         ('rue', 'rue'),
     ]
     name = models.CharField(max_length=255)
-    status = models.CharField(max_length=32, choices=BRAND, default='Choose a brand Matching the product Below')
+    status = models.CharField(max_length=32, choices=BRAND, default='Choose a brand Matching the product Below', null=True)
 
     def __str__(self):
         return self.name
@@ -260,7 +260,7 @@ class Product(models.Model):
     quantity = models.IntegerField(default=1)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    status = models.CharField(max_length=50, choices=BRAND, default='Choose One Below')
+    status = models.CharField(max_length=50, choices=BRAND, default='Choose One Below', null=True)
 
     def get_prep_value(self, value):
         try:
@@ -275,20 +275,12 @@ class Product(models.Model):
 
 
 class Orders(models.Model):
-    STATUS = (
-        ('Order Placed', 'Order Placed'),
-        ('Order Confirmed', 'Order Confirmed'),
-        ('Out for Delivery', 'Out for Delivery'),
-        ('Delivered', 'Delivered'),
-    
-    )
-
     PAYMENT_CHOICES = (
-        ('Order Placed', 'Order Placed'),
-        ('Order Confirmed', 'Order Confirmed'),
-        ('Out for Delivery', 'Out for Delivery'),
-        ('Delivered', 'Delivered'),
-        )
+            ('Order Placed', 'Order Placed'),
+            ('Order Confirmed', 'Order Confirmed'),
+            ('Out for Delivery', 'Out for Delivery'),
+            ('Delivered', 'Delivered'),
+            )
 
 
     customer = models.ForeignKey('Customer', on_delete=models.CASCADE, null=True)
@@ -297,8 +289,8 @@ class Orders(models.Model):
     address = models.CharField(max_length=500, null=True)
     mobile = models.CharField(max_length=20, null=True)
     order_date = models.DateField(auto_now_add=True, null=True)
-    status = models.CharField(max_length=50, null=True, choices=STATUS)
-    payment_status = models.CharField(max_length=16, choices=STATUS, default='')
+    status = models.CharField(max_length=50, null=True, choices=PAYMENT_CHOICES)
+    payment_status = models.CharField(max_length=16, choices=PAYMENT_CHOICES, default='', null=True)
 
     def __str__(self):
         return f"Order #{self.pk} - {self.status}"
