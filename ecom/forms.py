@@ -25,6 +25,26 @@ class ProductForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(ProductForm, self).__init__(*args, **kwargs)
 
+        # Customize widget attributes
+        self.fields['name'].widget.attrs.update({'class': 'form-control'})
+        self.fields['code'].widget.attrs.update({'class': 'form-control'})
+        
+        # Customize field labels and help text
+        self.fields['product_image'].label = 'Product Image'
+        self.fields['price'].help_text = 'Enter the price in your local currency.'
+
+        # Modify choices for the 'status' field
+        custom_status_choice = ('custom_status', 'Custom Status')
+        self.fields['status'].choices = [custom_status_choice] + self.fields['status'].choices
+
+    def clean_price(self):
+        # Custom validation for the 'price' field
+        price = self.cleaned_data['price']
+        if price < 0:
+            raise forms.ValidationError('Price cannot be negative.')
+        return price
+
+
 #address of shipment
 class AddressForm(forms.Form):
     Email = forms.EmailField()
