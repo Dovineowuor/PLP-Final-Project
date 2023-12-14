@@ -7,3 +7,9 @@ ecom/__pycache__/*
 
 templates/ecom/products_listings.html
 .fuse_hidden000000c500000006
+ecom/__pycache__/__init__.cpython-310.pyc
+ecom/__pycache__/__init__.cpython-310.pyc
+ecom/__pycache__/__init__.cpython-310.pyc
+ecom/__pycache__/admin.cpython-310.pyc
+ecom/__pycache__/__init__.cpython-310.pyc
+*.pyc
