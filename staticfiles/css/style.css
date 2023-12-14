@@ -606,7 +606,8 @@ pre code {
 
 @media (min-width: 1200px) {
   .container {
-    max-width: 1140px;
+    max-width: 1720px;
+    height: max-content;
   }
 }
 
@@ -11826,6 +11827,8 @@ textarea.form-control {
 
 footer {
   padding: 4em 0;
+  height: max-content;
+  
 }
 
 .footer-03 {
