@@ -1,6 +1,6 @@
 <!-- templates/ecom/categories.html -->
 
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     {% load static %}
@@ -37,16 +37,15 @@
         }
     </style>
 </head>
-<body> -->
-    <!-- {% if request.user.is_authenticated %}
+<body>
+  {% if request.user.is_authenticated %}
         {% include "ecom/customer_navbar.html" %}
     {% else %}
         {% include "ecom/navbar.html" %}
-    {% endif %} -->
-    <!-- <div style="display: flex; flex-wrap: wrap;">
+    {% endif %}
         {% for category in categories %}
             <div class="category-card">
-                <img src="{{ category.image.url }}" alt="{{ category.name }}" style="max-width: 100%;">
+                <img src="{{ category.image }}" alt="{{ category.name }}" style="max-width: 100%;">
                 <div class="category-title">{{ category.name }}</div>
                 <div class="category-description">{{ category.description }}</div>
             </div>
