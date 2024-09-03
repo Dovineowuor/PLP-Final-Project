@@ -25,7 +25,7 @@ SECRET_KEY = '#vw(03o=(9kbvg!&2d5i!2$_58x@_-3l4wujpow6(ym37jxnza'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost:8000", "127.0.0.1", "127.0.0.1:8000", "zoobee.up.railway.app", "zoobeec.up.railway.app"]
+ALLOWED_HOSTS = ["localhost:8000", "127.0.0.1", "127.0.0.1:8000", "*"]
 
 
 # Application definition
@@ -162,22 +162,10 @@ if os.environ.get('DJANGO_ENV') == 'production':
 
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-"""
-Settings for Django's EmailMessage: If you're using Django's EmailMessage to send emails, make sure you set the from_email parameter when creating an EmailMessage instance. This ensures that the "from" address is properly set.
-Here's a quick example of using EmailMessage:
-
-python
-Copy code
-from django.core.mail import EmailMessage
-
-email = EmailMessage(
-    'Subject',
-    'Body',
-    'from@gmail.com',
-    ['to@gmail.com'],
-    ['bcc@example.com'],
-    reply_to=['another@example.com'],
-    headers={'Message-ID': 'foo'},
-)
-email.send()
-"""
+    EMAIL_USE_TLS = False
+    EMAIL_PORT = 1025
+    EMAIL_HOST = 'localhost'
+    EMAIL_HOST_USER = 'no-reply@localhost'
+    EMAIL_HOST_PASSWORD = 'no-reply@localhost'
+    EMAIL_RECEIVING_USER = ['owuordove@gmail.com'] # email on which you will receive messages sent from website
+    
